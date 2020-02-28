@@ -1,0 +1,40 @@
+#!/bin/bash
+#SBATCH --partition=omicsbio
+#SBATCH --ntasks=5
+#SBATCH --cpus-per-task=2
+#SBATCH --time=50:00:00
+#SBATCH --job-name=plink
+#SBATCH --mem=10G
+#SBATCH --workdir=/work/breastcancer/LDpred/adrild/
+#SBATCH --output=plink_%J_stdout.txt
+#SBATCH --error=plink_%J_stderr.txt
+#SBATCH --mail-user=adrien.f.badre-1@ou.edu
+#SBATCH --mail-type=ALL
+#SBATCH --chdir=/work/breastcancer/LDpred/adrild/
+
+module load Python/3.6.4-foss-2018a 
+
+pathLDpred="/home/lizhang12/software/ldpred/LDpred.py"
+array=("0.01" "0.001" "0.00001")
+array2=(5 2 1 1)
+for j in 100 1000 10000 20000 30000; do
+	count=0
+        for i in ${array[*]}; do
+		echo $i
+		k=$i
+ 		IFS='.' # point is set as delimiter
+		read -ra ADDR <<< "$i"
+		IFS=" "
+		echo $i 
+		# data coordination
+		python ${pathLDpred} coord --gf /work/breastcancer/clean_test/train/sig${k}_${j} --ssf ./${ADDR[1]}/logistic_filter_0_${ADDR[1]}.txt --ssf-format CUSTOM  --N 39289 --vgf /work/breastcancer/clean_test/validation/val${k} --out ./${ADDR[1]}/${j}/step1.result 
+		# gibbs sampler for weights
+		python ${pathLDpred} gibbs --cf=./${ADDR[1]}/${j}/step1.result --ldr=${array2[count]} --ldf=./${ADDR[1]}/${j}/train1 --N 39289 --out=./${ADDR[1]}/${j}/step2_gibbs  --n-burn-in 40 --n-iter 1000
+		# COmpute validation score
+		python ${pathLDpred} score --gf=/work/breastcancer/clean_test/validation/val${k} --rf=./${ADDR[1]}/${j}/step2_gibbs --out=./${ADDR[1]}/${j}/step3_validationScore
+		# Compute test scores
+		python ${pathLDpred} score --gf=/work/breastcancer/clean_test/test/test${k} --rf=./${ADDR[1]}/${j}/step2_gibbs --out=./${ADDR[1]}/${j}/step3_testScore
+		echo $count
+		count=$((count+1))
+	done
+done

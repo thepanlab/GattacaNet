@@ -7,7 +7,7 @@ predictive genomics
     * pandas
     * numpy
     * sklearn v0.22
-    * deep explain
+    * DeepExplain
     * LIME
   * R
     * bwgr
@@ -30,5 +30,5 @@ predictive genomics
     * Classic_Bio_Learning_Technics
      * Comport the R scripts to analyze BLUP, BayesA.... and the bash script for LDpred
   * Interpretation
-    * Comport the notbooks for LIME and DeepLift
+    *Comport the notbooks for LIME and DeepLift
 

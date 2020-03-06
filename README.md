@@ -13,7 +13,8 @@ predictive genomics
     * bwgr
     * read.plink
   * LDpred
-   * https://github.com/bvilhjal/ldpred
+    * https://github.com/bvilhjal/ldpred
+   
  ## How to use it 
  
  This github contains the base code to run our experimentations. Each module represent a step of analysis. 

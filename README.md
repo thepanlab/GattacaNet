@@ -1,5 +1,6 @@
 # GattacaNet
-predictive genomics
+Predictive Genomics for breast cancer
+
 ## Requirements
   * Python 3.6
     * Tensoflow v1.13
@@ -18,7 +19,6 @@ predictive genomics
     * https://github.com/bvilhjal/ldpred
    
  ## How to use it 
- 
  This github contains the base code to run our experimentations. Each module represent a step of analysis. 
   * DataPartioning
     * Comports the data partioning notebooks

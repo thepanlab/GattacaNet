@@ -22,13 +22,13 @@ predictive genomics
     * Comports the data Processing scripts to extract SNPs significiant
   * Learning
     * Full_vs_Reduced
-     * Comport the notebooks to analyze the optimal SNP reduction
+      * Comport the notebooks to analyze the optimal SNP reduction
     * Architecture Comparison 
-     * Comport the notebooks to compare architectures
+      * Comport the notebooks to compare architectures
     * Classic_Machine_Learning
-     * Comport the notebook to compare the classic machine learning models
+      * Comport the notebook to compare the classic machine learning models
     * Classic_Bio_Learning_Technics
-     * Comport the R scripts to analyze BLUP, BayesA.... and the bash script for LDpred
+      * Comport the R scripts to analyze BLUP, BayesA.... and the bash script for LDpred
   * Interpretation
-    *Comport the notbooks for LIME and DeepLift
+    * Comport the notbooks for LIME and DeepLift
 

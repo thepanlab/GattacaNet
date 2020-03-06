@@ -8,7 +8,9 @@ predictive genomics
     * numpy
     * sklearn v0.22
     * DeepExplain
+      * https://github.com/marcoancona/DeepExplain/
     * LIME
+      * https://github.com/marcotcr/lime
   * R
     * bwgr
     * read.plink

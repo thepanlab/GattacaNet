@@ -1,0 +1,26 @@
+SNP annotation:
+1. identify overlapped or nearst genes of SNPs
+2. phenotype & disease association
+3. pathway analysis
+
+Notes: 
+1. Our SNP annotation process was conducted using a website tool (https://www.snp-nexus.org/v4/)
+2. human reference genome version GRCh37/hg19
+3. We should prepare our input files fist, all the SNPs should list as the following examples:
+
+Chromosome	6	75480993	GT	-	1
+Chromosome	7	118831547	C	T	1
+Chromosome	7	4832371	A	G	1
+Chromosome	7	91782274	A	G	1
+Chromosome	8	128146308	G	T	1
+Chromosome	8	17265628	A	G	1
+Chromosome	8	21408145	C	T	1
+Chromosome	8	87816647	C	T	1
+dbsnp	rs111968842				
+dbsnp	rs112923443				
+dbsnp	rs116995945				
+dbsnp	rs117045048				
+dbsnp	rs117345894				
+dbsnp	rs181578054				
+dbsnp	rs187745955				
+dbsnp	rs189944458
